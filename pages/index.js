@@ -45,6 +45,7 @@ const HomePage = (props) => {
       <Head>
         <title>Home</title>
         <meta name="description" content="I post about web development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
         <Hero />
