@@ -1,8 +1,7 @@
-import FeaturedPosts from '@/components/home-page/featured-posts'
-import Hero from '@/components/home-page/hero'
-import { getFeaturedPosts } from '@/lib/posts-util';
+import AllPosts from '@/components/posts/all-posts'
+import { getAllPosts } from '@/lib/posts-util';
 import Head from 'next/head';
-import React from 'react'
+import { Fragment } from 'react';
 
 const DUMMY_POSTS = [
   {
@@ -39,29 +38,25 @@ const DUMMY_POSTS = [
   },
 ];
 
-const HomePage = (props) => {
+const AllPostsPage = (props) => {
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
-        <title>Home</title>
-        <meta name="description" content="I post about web development" />
+        <title>All Posts</title>
+        <meta name="description" content="A List of all posts on my blog" />
       </Head>
-      <main>
-        <Hero />
-        <FeaturedPosts posts={props.posts} />
-      </main>
-    </React.Fragment>
+      <AllPosts posts={props.posts}/>
+    </Fragment>
   )
 }
 
 export function getStaticProps() {
-  const featuredPosts =  getFeaturedPosts();
+  const allPosts = getAllPosts();
   return {
     props: {
-      posts : featuredPosts,
+      posts: allPosts,
     },
-    revalidate: 60
   }
 }
 
-export default HomePage
+export default AllPostsPage
